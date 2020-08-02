@@ -65,8 +65,8 @@ resource "aws_instance" "ws2" {
 }
 
 # Create a new load balancer
-resource "aws_elb" "LB_WS" {
-  name               = "LB_WS"
+resource "aws_elb" "LB-WS" {
+  name               = "LB-WS"
 //  vpc_id             = "${aws_vpc.LB_VPC.id}"
   security_groups    = [aws_security_group.WS_SG.id]
   subnets            = ["aws_subnet.LB_Subnet1.id","aws_subnet.LB_Subnet2.id"]
