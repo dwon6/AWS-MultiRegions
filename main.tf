@@ -10,9 +10,9 @@ provider "aws" {
 */
 resource "aws_vpc" "LB_VPC" {
     cidr_block = var.LB_VPC
-    tags {
-          Name = "LB_VPC"
-    }
+//    tags {
+//          Name = "LB_VPC"
+//    }
 }
 
 /*
