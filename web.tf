@@ -89,7 +89,7 @@ resource "aws_instance" "ws2" {
 //    }
 //}
 
-resource "aws_lb_target_group" "LB-WS {
+resource "aws_lb_target_group" "LB-WS" {
     health_check {
     interval            = 30
     path                = "/"
