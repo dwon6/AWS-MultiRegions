@@ -77,11 +77,11 @@ resource "aws_route_table" "LB-RT-2-Int" {
     }
 }
 
-resource "aws_route_table_association" "LB-RT-ASS" {
+resource "aws_route_table_association" "LB-RT-ASS1" {
     subnet_id = aws_subnet.LB_Subnet1.id
     route_table_id = aws_route_table.LB-RT-2-Int.id
 }
-resource "aws_route_table_association" "LB-RT-ASS" {
+resource "aws_route_table_association" "LB-RT-ASS2" {
     subnet_id = aws_subnet.LB_Subnet2.id
     route_table_id = aws_route_table.LB-RT-2-Int.id
 }
