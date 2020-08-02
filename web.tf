@@ -27,9 +27,9 @@ resource "aws_security_group" "WS_SG" {
 
     vpc_id = "${aws_vpc.LB_VPC.id}"
 
-//    tags {
-//        Name = "WS_SG"
-//    }
+    tags {
+       Name = "WS_SG"
+    }
 }
 
 resource "aws_instance" "ws1" {
@@ -37,7 +37,7 @@ resource "aws_instance" "ws1" {
     availability_zone = "us-west-1a"
     instance_type = "t2.micro"
     key_name = "${var.aws_key_name}"
-    network_id = "${aws_vpc.LB_VPC.id}"
+//    network_id = "${aws_vpc.LB_VPC.id}"
     subnet_id = "${aws_subnet.WS_Subnet1.id}"
     vpc_security_group_ids = ["${aws_security_group.WS_SG.id}"]
 //    tags {
@@ -50,7 +50,7 @@ resource "aws_instance" "ws2" {
     availability_zone = "us-west-1b"
     instance_type = "t2.micro"
     key_name = "${var.aws_key_name}"
-    network_id = "${aws_vpc.LB_VPC.id}"
+//    network_id = "${aws_vpc.LB_VPC.id}"
     subnet_id = "${aws_subnet.WS_Subnet2.id}"
     vpc_security_group_ids = ["${aws_security_group.WS_SG.id}"]
 //    tags {
