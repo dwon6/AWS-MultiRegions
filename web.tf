@@ -27,7 +27,7 @@ resource "aws_security_group" "WS_SG" {
 
     vpc_id = "${aws_vpc.LB_VPC.id}"
 
-    tags {
+    tags = {
        Name = "WS_SG"
     }
 }
