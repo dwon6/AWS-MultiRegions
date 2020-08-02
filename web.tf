@@ -70,7 +70,7 @@ resource "aws_elb" "LB-WS" {
     }
 
     health_check {
-        target              = "HTTP:80"
+        target              = "HTTP:80/index.html"
         interval            = 30
         healthy_threshold   = 2
         unhealthy_threshold = 2
