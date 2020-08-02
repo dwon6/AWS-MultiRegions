@@ -10,9 +10,9 @@ provider "aws" {
 */
 resource "aws_vpc" "LB_VPC" {
     cidr_block = var.LB_VPC
-//    tags {
-//          Name = "LB_VPC"
-//    }
+    tags = {
+          Name = "LB_VPC"
+    }
 }
 
 /*
@@ -22,17 +22,17 @@ resource "aws_subnet" "LB_Subnet1" {
     vpc_id = aws_vpc.LB_VPC.id
     cidr_block = var.LB_Subnet1
     availability_zone = "us-west-1a"
-//    tags {
-//          Name = "LB_subnet1"
-//    }
+    tags = {
+          Name = "LB_subnet1"
+    }
 }
 resource "aws_subnet" "LB_Subnet2" {
     vpc_id = aws_vpc.LB_VPC.id
     cidr_block = var.LB_Subnet2
     availability_zone = "us-west-1b"
-//    tags {
-//          Name = "LB_Subnet2"
-//    }
+    tags = {
+          Name = "LB_Subnet2"
+    }
 }
 
 /*
@@ -42,18 +42,18 @@ resource "aws_subnet" "WS_Subnet1" {
     vpc_id = aws_vpc.LB_VPC.id
     cidr_block = var.WS_Subnet1
     availability_zone = "us-west-1a"
-//    tags {
-//          Name = "WS_Subnet1"
-//    }
+    tags = {
+          Name = "WS_Subnet1"
+    }
 }
 
 resource "aws_subnet" "WS_Subnet2" {
     vpc_id = aws_vpc.LB_VPC.id
     cidr_block = var.WS_Subnet2
     availability_zone = "us-west-1b"
-//    tags {
-//          Name = "WS_Subnet2"
-//    }
+    tags = {
+          Name = "WS_Subnet2"
+    }
 }
 
 /*
@@ -72,9 +72,9 @@ resource "aws_route_table" "LB_VPC_RT_2_Internet" {
         cidr_block = "0.0.0.0/0"
         gateway_id = aws_internet_gateway.LB_IGW.id
     }
-//    tags {
-//         Name = "LB_VPC_RT_2_Internet"
-//    }
+    tags = {
+         Name = "LB_VPC_RT_2_Internet"
+    }
 }
 
 resource "aws_route_table_association" "LB_VPC_RT_2_Internet1" {

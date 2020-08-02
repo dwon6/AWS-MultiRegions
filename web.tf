@@ -53,56 +53,56 @@ resource "aws_instance" "ws2" {
 //    network_id = "${aws_vpc.LB_VPC.id}"
     subnet_id = "${aws_subnet.WS_Subnet2.id}"
     vpc_security_group_ids = ["${aws_security_group.WS_SG.id}"]
-//    tags {
-//         Name = "Web Server 2"
-//    }
+    tags = {
+         Name = "Web Server 2"
+    }
 }
 
 # Create a new load balancer
-//resource "aws_elb" "LB-WS" {
-//  name               = "LB-WS"
-//  vpc_id             = "${aws_vpc.LB_VPC.id}"
-//  security_groups    = [aws_security_group.WS_SG.id]
-//  subnets            = ["aws_subnet.LB_Subnet1.id","aws_subnet.LB_Subnet2.id"]
+resource "aws_elb" "LB-WS" {
+    name               = "LB-WS"
+    vpc_id             = "${aws_vpc.LB_VPC.id}"
+    security_groups    = [aws_security_group.WS_SG.id]
+    subnets            = ["aws_subnet.LB_Subnet1.id","aws_subnet.LB_Subnet2.id"]
   
-//  listener {
-//    instance_port     = "80"
-//    instance_protocol = "http"
-//    lb_port           = "80"
-//    lb_protocol       = "http"
-//  }
+    listener {
+      instance_port     = "80"
+      instance_protocol = "http"
+      lb_port           = "80"
+      lb_protocol       = "http"
+    }
 
-// health_check {
-//    target              = "HTTP:80/index.html"
-//    interval            = 30
-//    healthy_threshold   = 2
-//    unhealthy_threshold = 2
-//    timeout             = 5
-//  }
+    health_check {
+      target              = "HTTP:80/index.html"
+      interval            = 30
+      healthy_threshold   = 2
+      unhealthy_threshold = 2
+      timeout             = 5
+   }
 
 // ELB attachments
-//    number_of_instances = 2
-//    instances           = ["aws_instance.ws1.id", "aws_instance.ws2.id"]
+      number_of_instances = 2
+      instances           = ["aws_instance.ws1.id", "aws_instance.ws2.id"]
 
-//    tags = {
-//    Name = "LB-WS"
-//    }
-//}
-
-resource "aws_lb_target_group" "LB-WS" {
-    health_check {
-    interval            = 30
-    path                = "/"
-    protocol            = "HTTP"
-    timeout             = 5
-    healthy_threshold   = 5
-    unhealthy_threshold = 2
-  }
-
-  name        = "LB-WS"
-  port        = 80
-  protocol    = "HTTP"
-  target_type = "instance"
-  vpc_id      = "${aws_vpc.LB_VPC.id}"
-  instances   = ["aws_instance.ws1.id", "aws_instance.ws2.id"]
+      tags = {
+      Name = "LB-WS"
+      }
 }
+
+//resource "aws_lb_target_group" "LB-WS" {
+//    health_check {
+//    interval            = 30
+//    path                = "/"
+//    protocol            = "HTTP"
+//    timeout             = 5
+//    healthy_threshold   = 5
+//    unhealthy_threshold = 2
+//  }
+
+//  name        = "LB-WS"
+//  port        = 80
+//  protocol    = "HTTP"
+//  target_type = "instance"
+//  vpc_id      = "${aws_vpc.LB_VPC.id}"
+//  instances   = ["aws_instance.ws1.id", "aws_instance.ws2.id"]
+//}
