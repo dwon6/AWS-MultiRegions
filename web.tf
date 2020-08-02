@@ -46,9 +46,9 @@ resource "aws_instance" "ws1" {
     network_interface = "${aws_vpc.LB_VPC.id}"
     subnet_id = "${aws_subnet.WS_Subnet1.id}"
     vpc_security_group_ids = ["${aws_security_group.WS_SG.id}"]
-    tags {
-         Name = "Web Server 1"
-    }
+//    tags {
+//         Name = "Web Server 1"
+//    }
 }
 
 resource "aws_instance" "ws2" {
@@ -59,15 +59,15 @@ resource "aws_instance" "ws2" {
     network_interface = "${aws_vpc.LB_VPC.id}"
     subnet_id = "${aws_subnet.WS_Subnet2.id}"
     vpc_security_group_ids = ["${aws_security_group.WS_SG.id}"]
-    tags {
-         Name = "Web Server 2"
-    }
+//    tags {
+//         Name = "Web Server 2"
+//    }
 }
 
 # Create a new load balancer
 resource "aws_elb" "LB_WS" {
   name               = "LB_WS"
-  vpc_id             = "${aws_vpc.LB_VPC.id}"
+//  vpc_id             = "${aws_vpc.LB_VPC.id}"
   security_groups    = [aws_security_group.WS_SG.id]
   subnets            = ["aws_subnet.LB_Subnet1.id","aws_subnet.LB_Subnet2.id"]
   
@@ -87,7 +87,7 @@ resource "aws_elb" "LB_WS" {
   }
 
   // ELB attachments
-  number_of_instances = 2
+//  number_of_instances = 2
   instances           = ["aws_instance.ws1.id", "aws_instance.ws2.id"]
 
   tags = {
