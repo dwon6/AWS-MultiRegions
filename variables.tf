@@ -27,22 +27,22 @@ variable "LB_VPC" {
     default = "10.0.0.0/16"
 }
 
-variable "LB_subnet1" {
+variable "LB_Subnet1" {
     description = "LB_Subnet1"
     default = "10.0.0.0/24"
 }
 
-variable "LB_subnet2" {
+variable "LB_Subnet2" {
     description = "LB_Subnet2"
     default = "10.0.1.0/24"
 }
 
-variable "WS_subnet1" {
+variable "WS_Subnet1" {
     description = "WS_Subnet1"
     default = "10.0.2.0/24"
 }
 
-variable "WS_subnet2" {
+variable "WS_Subnet2" {
     description = "WS_Subnet2"
     default = "10.0.3.0/24"
 }

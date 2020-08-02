@@ -72,9 +72,9 @@ resource "aws_route_table" "LB_VPC_RT_2_Internet" {
         cidr_block = "0.0.0.0/0"
         gateway_id = aws_internet_gateway.LB_IGW.id
     }
-    tags {
-         Name = "LB_VPC_RT_2_Internet"
-    }
+//    tags {
+//         Name = "LB_VPC_RT_2_Internet"
+//    }
 }
 
 resource "aws_route_table_association" "LB_VPC_RT_2_Internet1" {
