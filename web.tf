@@ -59,8 +59,8 @@ resource "aws_instance" "ws2" {
 # Create a new load balancer
 resource "aws_elb" "LB-WS" {
     name               = "LB-WS"
-    subnets            = ["aws_subnet.LB-Subnet1.id","aws_subnet.LB-Subnet2.id"]
-    security_groups    = [aws_security_group.WS-SG.id]
+    subnets            = ["${aws_subnet.LB-Subnet1.id}","${aws_subnet.LB-Subnet2.id}"]
+    security_groups    = ["${aws_security_group.WS-SG.id}"]
   
     listener {
         instance_port     = "80"
@@ -76,7 +76,7 @@ resource "aws_elb" "LB-WS" {
         unhealthy_threshold = 2
         timeout             = 5
    }
-    instances           = ["aws_instance.ws1.id", "aws_instance.ws2.id"]
+    instances           = ["${aws_instance.ws1.id}", "${aws_instance.ws2.id}"]
 
     tags = {
         Name = "LB-WS"
