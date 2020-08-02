@@ -61,7 +61,7 @@ resource "aws_instance" "ws2" {
 # Create a new load balancer
 resource "aws_elb" "LB-WS" {
     name               = "LB-WS"
-    vpc_id             = "${aws_vpc.LB_VPC.id}"
+//    vpc_id             = "${aws_vpc.LB_VPC.id}"
     security_groups    = [aws_security_group.WS_SG.id]
     subnets            = ["aws_subnet.LB_Subnet1.id","aws_subnet.LB_Subnet2.id"]
   
@@ -81,7 +81,7 @@ resource "aws_elb" "LB-WS" {
    }
 
 // ELB attachments
-      number_of_instances = 2
+//      number_of_instances = 2
       instances           = ["aws_instance.ws1.id", "aws_instance.ws2.id"]
 
       tags = {
