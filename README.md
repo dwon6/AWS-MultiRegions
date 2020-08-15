@@ -14,6 +14,8 @@ Copy the existing module and paste it, then modify the name to the new regional 
 * shared/variables.tf:
 All variables for VPC and EC2.
 
-Add the new AMI IDs in a new additional region, which are copied from the existing region, into the AMI variables. But, you have to add the new AMI with the regional name.
+Add the new AMI IDs in a new additional region, which are copied from the existing region, into the AMI variables. 
+
+But, you have to add the new AMI with the regional name.
 
 * $terraform init && terraform plan && terraform apply
