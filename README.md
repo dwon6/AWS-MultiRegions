@@ -1,13 +1,6 @@
 This terraform can deploy web servers to multiple-regions by using modules.
 The Code Structure:
-|-- region.tf
-|--  shared/
-    |-- ec2.tf
-    |-- outputs.tf
-    |-- provider.tf
-    |-- variables.tf
-    |-- variables.tfvars
-    |--  vpc.tf
+https://github.com/dwon6/AWS-MultiRegions/blob/master/structure.JPG
 
 How to use this code if you want to add the additional region.
 1. .region.tf:  The modules for the multiple-regions definition
