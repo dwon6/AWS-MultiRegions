@@ -1,5 +1,5 @@
-#This terraform can deploy web servers to multiple-regions by using modules.
-# The Code Structure:
+This terraform can deploy web servers to multiple-regions by using modules.
+The Code Structure:
 |-- region.tf
 |--  shared/
     |-- ec2.tf
