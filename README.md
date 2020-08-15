@@ -1,6 +1,6 @@
 # MAP603 - AWS Multi-Region Deployment
 
-This code can deploy web servers to multiple-regions by using modules.
+This code can deploy web servers to multiple-regions through the defined modules.
 
 ![The Code Structure](https://github.com/dwon6/AWS-MultiRegions/blob/master/structure.JPG)
 
