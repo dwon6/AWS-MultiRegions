@@ -1,6 +1,8 @@
+# MAP603 - AWS Multi-Region Deployment
+
 This terraform can deploy web servers to multiple-regions by using modules.
-The Code Structure:
-(https://github.com/dwon6/AWS-MultiRegions/blob/master/structure.JPG)
+
+![The Code Structure](https://github.com/dwon6/AWS-MultiRegions/blob/master/structure.JPG)
 
 How to use this code if you want to add the additional region.
 1. .region.tf:  The modules for the multiple-regions definition
